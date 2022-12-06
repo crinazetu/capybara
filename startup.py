@@ -18,6 +18,9 @@ global filemenu
 filemenu = tk.Menu(myMenu, tearoff=False)
 global thememenu
 thememenu = tk.Menu(myMenu, tearoff=False)
+global uniFrame
+uniFrame = tk.Frame(root)
+uniFrame.place(x=0, y=0, width=1270, height=720)
 
 def iexit(event=None):
     result = messagebox.askyesno('Confirm', 'Do you want to exit?')
@@ -55,20 +58,22 @@ myMenu.add_command(label='Run',command=run_code)
 check.set('light')
 
 
-def page1(root):
-    page = tk.Frame(root, bg='blue')
-    page.grid()
-    tk.Label(page, text='This is page 2').grid(row=0)
-    tk.Button(page, text='To page 1', command=changepage).grid(row=1)
+def page1(uniFrame):
+    page = tk.Frame(uniFrame, bg='#55f0f2')
+    page.place(x=0, y=0, relwidth=1, relheight=1)
+    tk.Button(page, text='Start', command=changepage).place(relx=0.5, rely=0.5)
 
 
-def page2(root):
-    sandbox.placeEverything(root, font_size)
+def page2(uniFrame):
+    sandbox.placeEverything(uniFrame, font_size)
 
 def changepage():
     global pagenum, root
     for widget in root.winfo_children():
-        widget.destroy()
+        if root.winfo_children().__contains__(myMenu):
+            continue
+        else:
+            widget.destroy()
     if pagenum == 1:
         page2(root)
         pagenum = 2
@@ -89,5 +94,5 @@ root.bind('<Control-q>',iexit)
 root.bind('<Control-p>',font_inc)
 root.bind('<Control-m>',font_dec)
 
-page1(root)
+page1(uniFrame)
 root.mainloop()

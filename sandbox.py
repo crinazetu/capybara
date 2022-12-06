@@ -11,17 +11,21 @@ path = ''
 temppath = os.path.expanduser('~')
 print(temppath)
 
-def setup(root, font_size):
+def setup(frame, font_size):
     global sandboxFrame
-    sandboxFrame = Frame(root, bg='lightblue')
+    sandboxFrame = Frame(frame, bg='lightblue')
     global codeListFrame
     codeListFrame = LabelFrame(sandboxFrame, text="Code List", font=('courier', 12, 'bold'))
     global scrollbar2
     scrollbar2 = Scrollbar(codeListFrame, orient=VERTICAL)
     global button
     button = codeList.btnDict["helloworld"]
+    global button2
+    button2 = codeList.btnDict["forLoop"]
     global testBtn
     testBtn = Button(codeListFrame, text=button.name, command=lambda: parseText(button.codetext))
+    global testBtn2
+    testBtn2 = Button(codeListFrame, text=button2.name, command=lambda: parseText(button2.codetext))
     global editFrame
     editFrame = Frame(sandboxFrame, bg='white')
     global scrollbar
@@ -126,12 +130,13 @@ def parseText(code):
 
 
 
-def placeEverything(root, fontsize):
-    setup(root, fontsize)
+def placeEverything(frame, fontsize):
+    setup(frame, fontsize)
     sandboxFrame.place(x=0, y=0, width=1270, height=720)
     codeListFrame.place(x=0, y=0, relwidth=0.1, relheight=1)
     scrollbar2.pack(side=RIGHT, fill=Y)
     testBtn.pack()
+    testBtn2.pack()
     editFrame.place(relx=0.1, y=0, relheight=0.8, relwidth=0.4)
     scrollbar.pack(side=RIGHT, fill=Y)
     textarea.pack(fill=BOTH)
