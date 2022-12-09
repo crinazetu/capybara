@@ -24,9 +24,6 @@ myMenu = tk.Menu()
 # Sets up file menu in the toolbar
 global filemenu
 filemenu = tk.Menu(myMenu, tearoff=False)
-# Sets up theme menu in the toolbar
-global thememenu
-thememenu = tk.Menu(myMenu, tearoff=False)
 
 # Universal frame, this will hold in every page
 global uniFrame
@@ -41,15 +38,7 @@ def iexit(event=None):
     else:
         pass
 
-# theme changes the current theme of the editor
-def theme():
-    if check.get() == 'light':
-        sandbox.textarea.config(bg='white', fg='black')
-        sandbox.outputarea.config(bg='white', fg='black')
 
-    if check.get() == 'dark':
-        sandbox.textarea.config(bg='gray20', fg='white')
-        sandbox.outputarea.config(bg='gray20', fg='white')
 
 # sets buttons up within the top menu with their corresponding functions.
 filemenu.add_command(label='New File',accelerator='Ctrl+N',command=new)
@@ -60,15 +49,10 @@ filemenu.add_command(label='Exit',accelerator='Ctrl+Q',command=iexit)
 myMenu.add_cascade(label='File',menu=filemenu)
 
 
-thememenu.add_radiobutton(label='Light',variable=check,value='light',command=theme)
-thememenu.add_radiobutton(label='Dark',variable=check,value='dark',command=theme)
-
-myMenu.add_cascade(label='Themes',menu=thememenu)
-
 myMenu.add_command(label='Clear',command=clear)
 
 myMenu.add_command(label='Run',command=run_code)
-check.set('dark')
+check.set('light')
 
 # PAGE 1
 # The first page you see when you open the application

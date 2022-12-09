@@ -6,6 +6,7 @@ import os
 
 import codeList
 from codeList import *
+import CodeEditor
 
 path = ''
 temppath = os.path.expanduser('~')
@@ -23,7 +24,7 @@ def setup(frame, font_size):
     global scrollbar
     scrollbar = Scrollbar(editFrame, orient=VERTICAL)
     global textarea
-    textarea = Text(editFrame, font=('courier', font_size, 'bold'), yscrollcommand=scrollbar.set)
+    textarea = CodeEditor.setTextBox(editFrame, font_size, scrollbar)
     global outputFrame
     outputFrame = LabelFrame(sandboxFrame, text='Console', font=('courier', 12, 'bold'))
     global visualOutputFrame
@@ -113,11 +114,6 @@ def new(event=None):
 def clear():
     textarea.delete(1.0, END)
     outputarea.delete(1.0, END)
-
-
-
-
-
 
 
 def placeEverything(frame, fontsize):
