@@ -8,8 +8,3 @@ class CodeButton():
         self.name = name
         self.codetext = codetext
 
-    def getName(self):
-        return self.name
-
-    def getCode(self):
-        return self.codetext
