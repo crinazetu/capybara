@@ -123,6 +123,7 @@ def placeEverything(frame, fontsize):
     scrollbar2.pack(side=RIGHT, fill=Y)
     editFrame.place(relx=0.1, y=0, relheight=0.8, relwidth=0.4)
     scrollbar.pack(side=RIGHT, fill=Y)
+
     textarea.pack(fill=BOTH)
     scrollbar.config(command=textarea.yview)
     outputFrame.place(relx=0.1, rely=0.8, relwidth=0.4, relheight=0.2)
