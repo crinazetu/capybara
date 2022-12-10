@@ -7,6 +7,7 @@ from tkinter import messagebox
 import sandbox
 from sandbox import *
 
+
 # Set up root, the main window
 root = tk.Tk()
 root.geometry('1270x720+0+0')
