@@ -38,8 +38,6 @@ def iexit(event=None):
     else:
         pass
 
-
-
 # sets buttons up within the top menu with their corresponding functions.
 filemenu.add_command(label='New File',accelerator='Ctrl+N',command=new)
 filemenu.add_command(label='Open File',accelerator='Ctrl+O',command=openfile)
