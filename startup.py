@@ -80,7 +80,7 @@ def changepage():
         startPage(root)
         pagenum = 1
 
-pagenum = 1
+pagenum = 2
 
 
 root.config(menu=myMenu)
@@ -93,5 +93,5 @@ root.bind('<Control-q>',iexit)
 root.bind('<Control-p>',font_inc)
 root.bind('<Control-m>',font_dec)
 
-startPage(uniFrame)
+sandboxPage(uniFrame)
 root.mainloop()

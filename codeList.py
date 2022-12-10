@@ -1,5 +1,6 @@
 import sandbox
 from CodeButton import *
+from CollapsablePane import CollapsiblePane as cp
 
 #btnDict = {}
 
@@ -19,10 +20,15 @@ def createGUI(parentframe):
     #    key = Button(codeListFrame, text=button.name, command=lambda: parseText(button.codetext, sandbox.textarea))
     #    key.pack()
 
-    helloworldbtn = Button(codeListFrame, text=helloWorld.name, command=lambda: parseText(helloWorld.codetext, sandbox.textarea))
-    helloworldbtn.pack()
-    forloopbtn = Button(codeListFrame, text=forLoop.name, command=lambda: parseText(forLoop.codetext, sandbox.textarea))
-    forloopbtn.pack()
+    mainpane = cp(codeListFrame, 'close', 'open')
+    mainpane.grid(row = 0, column = 0)
+
+    helloworldbtn = Button(mainpane.frame, text=helloWorld.name, command=lambda: parseText(helloWorld.codetext, sandbox.textarea))
+    helloworldbtn.grid(
+            row = 1, column = 0)
+    forloopbtn = Button(mainpane.frame, text=forLoop.name, command=lambda: parseText(forLoop.codetext, sandbox.textarea))
+    forloopbtn.grid(
+            row = 2, column = 0)
 
     return codeListFrame
 

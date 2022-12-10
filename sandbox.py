@@ -120,9 +120,9 @@ def placeEverything(frame, fontsize):
     setup(frame, fontsize)
     sandboxFrame.place(x=0, y=0, width=1270, height=720)
     codeL.place(x=0, y=0, relwidth=0.1, relheight=1)
-    scrollbar2.pack(side=RIGHT, fill=Y)
+   # scrollbar2.config(side=RIGHT, fill=Y)
     editFrame.place(relx=0.1, y=0, relheight=0.8, relwidth=0.4)
-    scrollbar.pack(side=RIGHT, fill=Y)
+   # scrollbar.config(side=RIGHT, fill=Y)
 
     textarea.pack(fill=BOTH)
     scrollbar.config(command=textarea.yview)
