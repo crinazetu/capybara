@@ -1,8 +1,10 @@
 import idlelib.colorizer as ic
 import idlelib.percolator as ip
+import time
 import re
 import tkinter as tk
 from LineNumbers import *
+
 
 
 def setTextBox(parent, font_size, scrollbar):
@@ -21,8 +23,7 @@ class Tool:
     def indentLines(self, textw):
         text = textw.get(1.0, END)
         lines = text.splitlines()
-        print(lines[-1])
         if lines[-1].endswith(':'):
             print('colon was detected')
-            textw.insert(INSERT, '\t')
+            textw.insert(END, '\t')
 

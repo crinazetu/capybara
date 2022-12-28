@@ -1,7 +1,7 @@
 
 import subprocess
 import os
-import turtle
+import turtleCanvas
 
 import codeList
 from codeList import *
@@ -28,9 +28,8 @@ def setup(frame, font_size):
     outputFrame = LabelFrame(sandboxFrame, text='Console', font=('courier', 12, 'bold'))
     global visualOutputFrame
     visualOutputFrame = LabelFrame(sandboxFrame, text='Output', font=('courier', 12, 'bold'))
-    global canvas
-    canvas = Canvas(visualOutputFrame, width=550, height=450, bd=1, relief='solid')
-    t = turtle.RawTurtle(canvas=canvas)
+    global t
+    t = turtleCanvas.setupCanvas(visualOutputFrame)
     global scrollbar1
     scrollbar1 = Scrollbar(outputFrame, orient=VERTICAL)
     global outputarea
@@ -130,7 +129,8 @@ def placeEverything(frame, fontsize):
     scrollbar.config(command=textarea.yview)
     outputFrame.place(relx=0.1, rely=0.8, relwidth=0.4, relheight=0.2)
     visualOutputFrame.place(relx=0.5, rely=0, relheight=1, relwidth=0.5)
-    canvas.place(anchor='center', relx=0.5, rely=0.35)
+    turtleCanvas.placeCanvas(t)
     scrollbar1.pack(side=RIGHT, fill=Y)
     outputarea.pack(fill=BOTH)
     scrollbar1.config(command=textarea.yview)
+    turtleCanvas.writeSomething()

@@ -14,7 +14,7 @@ root.geometry('1270x720+0+0')
 root.title('CaPybara')
 
 global font_size
-font_size = 15
+font_size = 12
 
 # Checkmark for one of the drop-down lists
 global check
