@@ -19,8 +19,7 @@ class LineNumbers(Text):
         num_of_lines = final_index.split('.')[0]
         line_numbers_string = "\n".join(str(p + no) for no in range(int(num_of_lines)))
         width = len(str(num_of_lines))
-
-        self.configure(state='normal', font=('courier', 15, 'bold'))
+        self.configure(state='normal', font=('courier', 12, 'bold'))
         self.delete(1.0, END)
         self.insert(1.0, line_numbers_string)
         self.configure(state='disabled')
