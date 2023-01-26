@@ -115,14 +115,14 @@ def clear():
 def placeEverything(frame, fontsize):
     setup(frame, fontsize)
     sandboxFrame.place(x=0, y=0, width=1000, height=720)
-    codeL.place(x=0, y=0, relwidth=0.1, relheight=1)
+    codeL.place(x=0, y=0, relwidth=0.2, relheight=1)
    # scrollbar2.config(side=RIGHT, fill=Y)
-    editFrame.place(relx=0.1, y=0, relheight=0.8, relwidth=0.9)
+    editFrame.place(relx=0.2, y=0, relheight=0.8, relwidth=0.8)
    # scrollbar.config(side=RIGHT, fill=Y)
 
     textarea.pack(fill=BOTH)
     scrollbar.config(command=textarea.yview)
-    outputFrame.place(relx=0.1, rely=0.8, relwidth=1, relheight=0.2)
+    outputFrame.place(relx=0.2, rely=0.8, relwidth=0.8, relheight=0.2)
 
     scrollbar1.pack(side=RIGHT, fill=Y)
     outputarea.pack(fill=BOTH)
