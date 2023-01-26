@@ -10,7 +10,7 @@ from sandbox import *
 
 # Set up root, the main window
 root = tk.Tk()
-root.geometry('1270x720+0+0')
+root.geometry('1000x720+0+0')
 root.title('CaPybara')
 
 global font_size
@@ -29,7 +29,7 @@ filemenu = tk.Menu(myMenu, tearoff=False)
 # Universal frame, this will hold in every page
 global uniFrame
 uniFrame = tk.Frame(root)
-uniFrame.place(x=0, y=0, width=1270, height=720)
+uniFrame.place(x=0, y=0, width=1000, height=720)
 
 # iexit exits the application
 def iexit(event=None):

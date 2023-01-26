@@ -25,8 +25,6 @@ def setup(frame, font_size):
     textarea = CodeEditor.setTextBox(editFrame, font_size, scrollbar)
     global outputFrame
     outputFrame = LabelFrame(sandboxFrame, text='Console', font=('courier', 12, 'bold'))
-    global visualOutputFrame
-    visualOutputFrame = LabelFrame(sandboxFrame, text='Output', font=('courier', 12, 'bold'))
     global scrollbar1
     scrollbar1 = Scrollbar(outputFrame, orient=VERTICAL)
     global outputarea
@@ -116,16 +114,15 @@ def clear():
 
 def placeEverything(frame, fontsize):
     setup(frame, fontsize)
-    sandboxFrame.place(x=0, y=0, width=1270, height=720)
+    sandboxFrame.place(x=0, y=0, width=1000, height=720)
     codeL.place(x=0, y=0, relwidth=0.1, relheight=1)
    # scrollbar2.config(side=RIGHT, fill=Y)
-    editFrame.place(relx=0.1, y=0, relheight=0.8, relwidth=0.4)
+    editFrame.place(relx=0.1, y=0, relheight=0.8, relwidth=0.9)
    # scrollbar.config(side=RIGHT, fill=Y)
 
     textarea.pack(fill=BOTH)
     scrollbar.config(command=textarea.yview)
-    outputFrame.place(relx=0.1, rely=0.8, relwidth=0.4, relheight=0.2)
-    visualOutputFrame.place(relx=0.5, rely=0, relheight=1, relwidth=0.5)
+    outputFrame.place(relx=0.1, rely=0.8, relwidth=1, relheight=0.2)
 
     scrollbar1.pack(side=RIGHT, fill=Y)
     outputarea.pack(fill=BOTH)

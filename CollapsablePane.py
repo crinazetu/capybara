@@ -24,6 +24,7 @@ class CollapsiblePane(ttk.Frame):
         self._separator = ttk.Separator(self, orient="horizontal")
         self._separator.grid(row=0, column=1, sticky="we")
         self.frame = ttk.Frame(self)
+        self.toggle()
         self._activate()
 
     def _activate(self):
