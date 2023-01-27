@@ -13,10 +13,9 @@ print(temppath)
 def setup(frame, font_size):
     global sandboxFrame
     sandboxFrame = Frame(frame, bg='lightblue')
-    global codeL
-    codeL = codeList.createGUI(sandboxFrame)
-    global scrollbar2
-    scrollbar2 = Scrollbar(codeL, orient=VERTICAL)
+    #global codeL
+    #codeL = codeList.createGUI(sandboxFrame)
+
     global editFrame
     editFrame = Frame(sandboxFrame, bg='white')
     global scrollbar
@@ -115,7 +114,7 @@ def clear():
 def placeEverything(frame, fontsize):
     setup(frame, fontsize)
     sandboxFrame.place(x=0, y=0, width=1000, height=720)
-    codeL.place(x=0, y=0, relwidth=0.2, relheight=1)
+    codeList.createGUI(frame)
    # scrollbar2.config(side=RIGHT, fill=Y)
     editFrame.place(relx=0.2, y=0, relheight=0.8, relwidth=0.8)
    # scrollbar.config(side=RIGHT, fill=Y)

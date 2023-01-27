@@ -1,3 +1,5 @@
+import tkinter
+
 import sandbox
 from CodeButton import *
 from CollapsablePane import CollapsiblePane as cp
@@ -60,7 +62,18 @@ def parseText(code, textarea):
 
 def createGUI(parentframe):
     global codeListFrame
-    codeListFrame = LabelFrame(parentframe, text="Code List", font=('courier', 12, 'bold'))
+    mainFrame = Frame(parentframe)
+    mainFrame.grid(row=2, column=0, pady=(5, 0), sticky='nw')
+    mainFrame.grid_rowconfigure(0, weight=1)
+    mainFrame.grid_columnconfigure(0, weight=1)
+    mainFrame.propagate(False)
+    codeListFrame = Canvas(mainFrame)
+    codeListFrame.grid(row=0, column=0, sticky='news')
+
+    vs = Scrollbar(codeListFrame, orient='vertical', command=codeListFrame.yview())
+    vs.grid(row=0, column=1, sticky='ns')
+    codeListFrame.configure(yscrollcommand=vs.set)
+
     varspane = cp(codeListFrame, 'close', 'open')
     varspane.grid(row=0, column=0)
 
@@ -238,4 +251,5 @@ def createGUI(parentframe):
         row=37, column=0)
 
 
-    return codeListFrame
+
+    #return codeListFrame
