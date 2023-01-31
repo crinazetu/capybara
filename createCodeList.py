@@ -1,5 +1,6 @@
 from CodeButton import *
 import sandbox
+import PopupsButtons
 import codeList
 from CollapsablePane import CollapsiblePane as cp
 
@@ -57,9 +58,11 @@ helloWorld = CodeButton("Say Hello world", "print(\"Hello world\")")
 def createList(frame):
     list = []
 
+
     varisbtn = Button(frame,text=variableIs.name,
                       command=lambda: parseText(variableIs.codetext, sandbox.textarea))
     list.append(varisbtn)
+    PopupsButtons.CreateToolTip(varisbtn, variableIs.codetext + "\ncreates a variable")
 
     globalvarbtn = Button(frame, text=globalVarIs.name,
                           command=lambda: parseText(globalVarIs.codetext, sandbox.textarea))
