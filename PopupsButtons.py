@@ -1,4 +1,5 @@
 from tkinter import *
+import time
 
 class PopupsButtons(object):
     def __init__(self, widget):
@@ -7,8 +8,9 @@ class PopupsButtons(object):
         self.id = None
         self.x = self.y = 0
 
-    def show(self, text):
+    def show(self, codetext, text):
         self.text = text
+
         if self.tipwindow or not self.text:
             return
         x, y, cx, cy = self.widget.bbox("insert")
@@ -17,10 +19,14 @@ class PopupsButtons(object):
         self.tipwindow = tw = Toplevel(self.widget)
         tw.wm_overrideredirect(1)
         tw.wm_geometry("+%d+%d" % (x, y))
-        label = Label(tw, text=self.text, justify=LEFT,
-                      background="#ffffe0", relief=SOLID, borderwidth=1,
+        canvas = Frame(tw)
+        canvas.grid(row=2, column=0)
+        codelabel= Label(canvas, text=codetext, justify=LEFT, font=('courier', '8', 'normal'))
+        label = Label(canvas, text=self.text, justify=LEFT,
                       font=("tahoma", "8", "normal"))
-        label.pack(ipadx=1)
+        codelabel.grid(row=0, column=0)
+        label.grid(row=1, column=0)
+
 
     def hide(self):
         tw = self.tipwindow
@@ -29,11 +35,12 @@ class PopupsButtons(object):
             tw.destroy()
 
 
-def CreateToolTip(widget, text):
+def CreateToolTip(widget, codetext, text):
     popup = PopupsButtons(widget)
 
     def enter(event):
-        popup.show(text)
+        time.sleep(0.5)
+        popup.show(codetext, text)
 
     def leave(event):
         popup.hide()
