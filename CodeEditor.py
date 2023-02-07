@@ -24,11 +24,24 @@ class Tool:
         text = textw.get(1.0, END)
         lines = text.splitlines()
         if lines[-1].endswith(':'):
-            print('colon was detected')
-            textw.insert(END, '\n\t')
+            if lines[-1].startswith('\t'):
+                textw.insert(END, '\n\t\t')
+            else:
+                textw.insert(END, '\n\t')
             return 'break'
+
+        if lines[-1].startswith('\t\t\t'):
+            print('triple tab')
+            textw.insert(END, '\n\t\t\t')
+            return 'break'
+
+        if lines[-1].startswith('\t\t'):
+            print('double tab')
+            textw.insert(END, '\n\t\t')
+            return 'break'
+
         if lines[-1].endswith('\t'):
-            print('tab was detected')
             textw.insert(END, '\n\t')
             return 'break'
+
 

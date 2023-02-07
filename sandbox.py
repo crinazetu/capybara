@@ -1,4 +1,3 @@
-
 import subprocess
 import os
 
@@ -10,11 +9,12 @@ path = ''
 temppath = os.path.expanduser('~')
 print(temppath)
 
+
 def setup(frame, font_size):
     global sandboxFrame
     sandboxFrame = Frame(frame, bg='lightblue')
-    #global codeL
-    #codeL = codeList.createGUI(sandboxFrame)
+    # global codeL
+    # codeL = codeList.createGUI(sandboxFrame)
 
     global editFrame
     editFrame = Frame(sandboxFrame, bg='white')
@@ -28,7 +28,6 @@ def setup(frame, font_size):
     scrollbar1 = Scrollbar(outputFrame, orient=VERTICAL)
     global outputarea
     outputarea = Text(outputFrame, font=('courier', font_size, 'bold'), yscrollcommand=scrollbar1.set)
-
 
 
 def font_inc(event=None):
@@ -74,7 +73,6 @@ def saveas(event=None):
         file.write(textarea.get(1.0, END))
         file.close()
 
-
 def openfile(event=None):
     global path
     print(os.getlogin())
@@ -87,7 +85,6 @@ def openfile(event=None):
         textarea.insert(1.0, data)
         file.close()
 
-
 def save(event=None):
     if path == '':
         saveas()
@@ -96,28 +93,23 @@ def save(event=None):
         file.write(textarea.get(1.0, END))
         file.close()
 
-
 def new(event=None):
     global path
     path = ''
     textarea.delete(1.0, END)
     outputarea.delete(1.0, END)
 
-
-
-
 def clear():
     textarea.delete(1.0, END)
     outputarea.delete(1.0, END)
-
 
 def placeEverything(frame, fontsize):
     setup(frame, fontsize)
     sandboxFrame.place(x=0, y=0, width=1000, height=720)
     codeList.createGUI(frame)
-   # scrollbar2.config(side=RIGHT, fill=Y)
+    # scrollbar2.config(side=RIGHT, fill=Y)
     editFrame.place(relx=0.2, y=0, relheight=0.8, relwidth=0.8)
-   # scrollbar.config(side=RIGHT, fill=Y)
+    # scrollbar.config(side=RIGHT, fill=Y)
 
     textarea.pack(fill=BOTH)
     scrollbar.config(command=textarea.yview)
@@ -126,4 +118,3 @@ def placeEverything(frame, fontsize):
     scrollbar1.pack(side=RIGHT, fill=Y)
     outputarea.pack(fill=BOTH)
     scrollbar1.config(command=textarea.yview)
-

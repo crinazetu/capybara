@@ -6,6 +6,7 @@ import tkinter as tk
 from tkinter import messagebox
 import sandbox
 from sandbox import *
+import NewWindow
 
 
 # Set up root, the main window
@@ -46,6 +47,17 @@ filemenu.add_command(label='Save',accelerator='Ctrl+S',command=save)
 filemenu.add_command(label='Save as',accelerator='Ctrl+A',command=saveas)
 filemenu.add_command(label='Exit',accelerator='Ctrl+Q',command=iexit)
 myMenu.add_cascade(label='File',menu=filemenu)
+
+
+toolbarmenu = tk.Menu(myMenu, tearoff=False)
+myMenu.add_cascade(label='Toolbars', menu=toolbarmenu)
+
+def course():
+    NewWindow.NewWindow("Tutorial window", '400x720', "label", root)
+
+
+toolbarmenu.add_command(label='Course', command=course)
+toolbarmenu.add_command(label='Debug', command='print("debugger")')
 
 
 myMenu.add_command(label='Clear',command=clear)
