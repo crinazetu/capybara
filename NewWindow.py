@@ -1,27 +1,30 @@
 from tkinter import *
-
+import TutorialOne
 
 class NewWindow(Toplevel):
 
-    def __init__(self, titled, size, label, master=None):
+    def __init__(self, titled, label, master=None):
         super().__init__(master=master)
         self.title(titled)
-        self.geometry(size)
+        self.geometry("300x720")
         label = Label(self, text=label)
         label.pack()
 
     def tutorial(self):
-        unipage = Frame(self, bg='blue')
+        global unipage
+        unipage = Frame(self)
         unipage.place(x=0, y=0, relwidth=1, relheight=1)
 
-        stepone = Frame(unipage, bg='lightblue')
-        stepone.place(relx=0.025, rely=0.025,relwidth=0.95, relheight=0.95)
-        global pagenum_tutorial
-        pagenum_tutorial = 1
+        global tutorialonebtn
+        tutorialonebtn = Button(unipage, text='Start Tutorial One', command=self.startpage, width=40)
+        tutorialonebtn.grid(row=0, column=0)
+        global startbtn
+        startbtn = Button(unipage, text="start", command=self.startpage)
+        startbtn.place(relx=0.2, rely=0.95)
 
-        nextbtn = Button(unipage, text="next", command=self.changepagetut)
-        nextbtn.place(relx=0, rely=0.95)
 
-    def changepagetut(self):
-        print("should change the page")
+    def startpage(self):
+        TutorialOne.TutorialOne(master=unipage).place(relx=0, rely=0, relheight=1, relwidth=1)
+        startbtn.destroy()
+
 

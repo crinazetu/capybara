@@ -53,7 +53,7 @@ toolbarmenu = tk.Menu(myMenu, tearoff=False)
 myMenu.add_cascade(label='Toolbars', menu=toolbarmenu)
 
 def course():
-    nw = NewWindow.NewWindow('title', '200x720','label',root)
+    nw = NewWindow.NewWindow('title','label',root)
     nw.tutorial()
 
 

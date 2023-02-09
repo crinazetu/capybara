@@ -52,11 +52,15 @@ isItIn = CodeButton('Is element in list', '<element> in <list>')
 isItNotIn = CodeButton('Is element NOT in list', '<element> not in <list>')
 
 # misc
-helloWorld = CodeButton("Say Hello world", "print(\"Hello world\")")
+printmsg = CodeButton("Print a message", "print(<message>)")
 
 
 def createList(frame):
     list = []
+
+    printmsgbtn = Button(frame, text=printmsg.name, command=lambda: parseText(printmsg.codetext, sandbox.textarea))
+    list.append(printmsgbtn)
+    PopupsButtons.CreateToolTip(printmsgbtn, printmsg.codetext, 'Lets you print a written message in the output')
 
 
     varisbtn = Button(frame,text=variableIs.name,
