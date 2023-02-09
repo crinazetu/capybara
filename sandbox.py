@@ -5,9 +5,12 @@ import codeList
 from codeList import *
 import CodeEditor
 
+
 path = ''
 temppath = os.path.expanduser('~')
-print(temppath)
+#directory = 'CaPybara projects'
+#dirpath = os.path.join(temppath, directory)
+#print(temppath)
 
 
 def setup(frame, font_size):

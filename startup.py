@@ -8,6 +8,13 @@ import sandbox
 from sandbox import *
 import NewWindow
 
+directory = 'CaPybara projects'
+dirpath = os.path.join(temppath, directory)
+if os.path.exists(dirpath):
+    pass
+else:
+    os.mkdir(dirpath)
+    print("Directory '% s' created" % directory)
 
 # Set up root, the main window
 root = tk.Tk()

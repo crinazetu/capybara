@@ -20,16 +20,12 @@ class TutorialOne(Frame):
 
         self.pgno = 0
 
-
-
     def pageone(self):
         labelst.destroy()
         label = Label(self, text="Cool. Let's start it very simple.\n\nOn the left hand side of the main window, "
                                  "you should see a button that says 'Print message'.\n\nClick on it and once you are "
                                  "done, click 'next'.", justify='left', wraplength=290, anchor='center', font=fontstyle)
         label.place(relx=0, rely=0)
-
-
 
     def pagetwo(self):
         labelst.destroy()
@@ -38,8 +34,6 @@ class TutorialOne(Frame):
                                  "\n\nOnce you're done, click on 'Run' at the top of the window.", justify='left', wraplength=290, anchor='center', font=fontstyle)
         label.place(relx=0, rely=0)
         self.pgno = 1
-
-
 
     def pagethree(self):
         labelst.destroy()
