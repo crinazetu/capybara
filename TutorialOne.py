@@ -9,7 +9,7 @@ class TutorialOne(Frame):
 
         self.config(borderwidth='1', relief='solid')
         nextbtn = Button(self, text='next', command=self.gonext, font=fontstyle)
-        nextbtn.place(relx=0.2, rely=0.95)
+        nextbtn.place(relx=0.2, rely=0.9)
 
         global labelst
         labelst = Label(self, text='Hello and Welcome to CaPybara!\n\nIf you can read this, then it means you are ready '

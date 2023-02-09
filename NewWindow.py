@@ -6,7 +6,7 @@ class NewWindow(Toplevel):
     def __init__(self, titled, label, master=None):
         super().__init__(master=master)
         self.title(titled)
-        self.geometry("300x720")
+        self.geometry("300x500")
         label = Label(self, text=label)
         label.pack()
 
@@ -20,7 +20,7 @@ class NewWindow(Toplevel):
         tutorialonebtn.grid(row=0, column=0)
         global startbtn
         startbtn = Button(unipage, text="start", command=self.startpage)
-        startbtn.place(relx=0.2, rely=0.95)
+        startbtn.place(relx=0.2, rely=0.9)
 
 
     def startpage(self):
