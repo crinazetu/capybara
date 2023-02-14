@@ -2,14 +2,15 @@ import tkinter
 
 import sandbox
 from CodeButton import *
+from tkinter import ttk
 import createCodeList
 from CollapsablePane import CollapsiblePane as cp
 
 
 def createGUI(parentframe):
-    frame_main = Frame(parentframe, bg="gray")
+    frame_main = ttk.Frame(parentframe)
     frame_main.grid(sticky='news')
-    frame_canvas = Frame(frame_main)
+    frame_canvas = ttk.Frame(frame_main)
     frame_canvas.grid(row=2, column=0, pady=(5, 0), sticky='nw')
     frame_canvas.grid_rowconfigure(0, weight=1)
     frame_canvas.grid_columnconfigure(0, weight=1)
@@ -19,10 +20,10 @@ def createGUI(parentframe):
     canvas = Canvas(frame_canvas, bg="lightblue")
     canvas.grid(row=0, column=0, sticky="news")
 
-    vsb = Scrollbar(frame_canvas, orient="vertical", command=canvas.yview)
+    vsb = ttk.Scrollbar(frame_canvas, orient="vertical", command=canvas.yview)
     vsb.grid(row=0, column=1, sticky='ns')
     canvas.configure(yscrollcommand=vsb.set)
-    frame_buttons = Frame(canvas, bg="blue")
+    frame_buttons = ttk.Frame(canvas)
     canvas.create_window((0, 0), window=frame_buttons, anchor='nw')
 
     list = createCodeList.createList(frame_buttons)

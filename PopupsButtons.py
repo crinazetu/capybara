@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import ttk
 import time
 
 class PopupsButtons(object):
@@ -19,10 +20,10 @@ class PopupsButtons(object):
         self.tipwindow = tw = Toplevel(self.widget)
         tw.wm_overrideredirect(1)
         tw.wm_geometry("+%d+%d" % (x, y))
-        canvas = Frame(tw)
+        canvas = ttk.Frame(tw)
         canvas.grid(row=2, column=0)
-        codelabel= Label(canvas, text=codetext, justify=LEFT, font=('courier', '8', 'normal'))
-        label = Label(canvas, text=self.text, justify=LEFT,
+        codelabel= ttk.Label(canvas, text=codetext, justify=LEFT, font=('courier', '8', 'normal'))
+        label = ttk.Label(canvas, text=self.text, justify=LEFT,
                       font=("tahoma", "8", "normal"))
         codelabel.grid(row=0, column=0)
         label.grid(row=1, column=0)

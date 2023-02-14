@@ -3,11 +3,13 @@
 # Also contains some universal functions that will work regardless of what page you're in
 
 import tkinter as tk
+from tkinter import ttk
 
-from tkinter import messagebox
 import sandbox
 from sandbox import *
 import NewWindow
+
+from ttkthemes import ThemedTk
 
 directory = 'CaPybara projects'
 dirpath = os.path.join(temppath, directory)
@@ -18,8 +20,8 @@ else:
     print("Directory '% s' created" % directory)
 
 # Set up root, the main window
-root = tk.Tk()
-root.geometry('1000x720+0+0')
+root = ThemedTk(theme='adapta')
+root.geometry('1000x740+0+0')
 root.title('CaPybara')
 
 global font_size
@@ -32,12 +34,12 @@ check = tk.StringVar()
 
 # Sets up file menu in the toolbar
 global filemenu
-filemenu = Frame(root, bd=1, relief=RAISED)
+filemenu = ttk.Frame(root)
 filemenu.place(x=0, y=0, relwidth=1, height=40)
 
 # Universal frame, this will hold in every page
 global uniFrame
-uniFrame = tk.Frame(root)
+uniFrame = ttk.Frame(root)
 uniFrame.place(x=0, y=40, width=1000, height=680)
 
 # iexit exits the application
@@ -54,39 +56,35 @@ def course():
 
 # sets buttons up within the top menu with their corresponding functions.
 nficon = PhotoImage(file= r"Sprites\new_file.png")
-nf = Button(filemenu, image=nficon, command=new)
+nf = ttk.Button(filemenu, image=nficon, command=new)
 nf.place(x=0,y=0)
 oficon = PhotoImage(file=r"Sprites\open_file.png")
-of = Button(filemenu, image=oficon, command=openfile)
-of.place(x=36, y=0)
+of = ttk.Button(filemenu, image=oficon, command=openfile)
+of.place(x=55, y=0)
 svicon = PhotoImage(file=r"Sprites\save.png")
-sv = Button(filemenu, image=svicon, command=save)
-sv.place(x=(36*2), y=0)
+sv = ttk.Button(filemenu, image=svicon, command=save)
+sv.place(x=(55*2), y=0)
 svaicon= PhotoImage(file="Sprites\save_as.png")
-sva = Button(filemenu, image=svaicon, command=saveas)
-sva.place(x=(36*3), y=0)
+sva = ttk.Button(filemenu, image=svaicon, command=saveas)
+sva.place(x=(55*3), y=0)
 clicon = PhotoImage(file=r"Sprites\clear.png")
-cl = Button(filemenu, image=clicon, command=clear)
-cl.place(x=(36*4), y=0)
+cl = ttk.Button(filemenu, image=clicon, command=clear)
+cl.place(x=(55*4), y=0)
 rnicon = PhotoImage(file=r"Sprites\play.png")
-rn=Button(filemenu, image=rnicon, command=run_code)
-rn.place(x=(36*5), y=0)
+rn= ttk.Button(filemenu, image=rnicon, command=run_code)
+rn.place(x=(55*5), y=0)
 tuticon = PhotoImage(file=r"Sprites\tutorial.png")
-tut = Button(filemenu, image=tuticon, command=course)
-tut.place(x=(36*6), y=0)
-
-
-
-
+tut = ttk.Button(filemenu, image=tuticon, command=course)
+tut.place(x=(55*6), y=0)
 
 check.set('light')
 
 # PAGE 1
 # The first page you see when you open the application
 def startPage(uniFrame):
-    page = tk.Frame(uniFrame, bg='#55f0f2')
+    page = ttk.Frame(uniFrame)
     page.place(x=0, y=0, relwidth=1, relheight=1)
-    tk.Button(page, text='Start', command=changepage).place(relx=0.5, rely=0.5)
+    ttk.Button(page, text='Start', command=changepage).place(relx=0.5, rely=0.5)
 
 # PAGE 2
 # Page containing sandbox
@@ -121,7 +119,7 @@ root.bind('<Control-a>',saveas)
 root.bind('<Control-p>',font_inc)
 root.bind('<Control-m>',font_dec)
 
-img = PhotoImage(file='Sprites/new_file.png')
+img = PhotoImage(file='Sprites/capybaraiconsm.png')
 root.wm_iconphoto(True, img)
 
 sandboxPage(uniFrame)

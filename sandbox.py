@@ -5,6 +5,8 @@ import codeList
 from codeList import *
 import CodeEditor
 
+from tkinter import ttk
+
 
 path = ''
 temppath = os.path.expanduser('~')
@@ -15,20 +17,20 @@ temppath = os.path.expanduser('~')
 
 def setup(frame, font_size):
     global sandboxFrame
-    sandboxFrame = Frame(frame, bg='lightblue')
+    sandboxFrame = ttk.Frame(frame)
     # global codeL
     # codeL = codeList.createGUI(sandboxFrame)
 
     global editFrame
-    editFrame = Frame(sandboxFrame, bg='white')
+    editFrame = ttk.Frame(sandboxFrame)
     global scrollbar
-    scrollbar = Scrollbar(editFrame, orient=VERTICAL)
+    scrollbar = ttk.Scrollbar(editFrame, orient=VERTICAL)
     global textarea
     textarea = CodeEditor.setTextBox(editFrame, font_size, scrollbar)
     global outputFrame
-    outputFrame = LabelFrame(sandboxFrame, text='Console', font=('courier', 12, 'bold'))
+    outputFrame = ttk.LabelFrame(sandboxFrame, text='Console')
     global scrollbar1
-    scrollbar1 = Scrollbar(outputFrame, orient=VERTICAL)
+    scrollbar1 = ttk.Scrollbar(outputFrame, orient=VERTICAL)
     global outputarea
     outputarea = Text(outputFrame, font=('courier', font_size, 'bold'), yscrollcommand=scrollbar1.set)
 
