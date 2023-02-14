@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import ttk
+import sandbox
 
 class TutorialOne(Frame):
     def __init__(self, master=None):
@@ -17,7 +18,6 @@ class TutorialOne(Frame):
                                    'to start learning Python. CaPybara will make that a bit easier for you.\n\nClick '
                                    '\'Next\' to start the tutorial.', justify='left', wraplength=290, anchor='center', font=fontstyle)
         labelst.place(relx=0, rely=0)
-
 
         self.pgno = 0
 
@@ -38,26 +38,36 @@ class TutorialOne(Frame):
 
     def pagethree(self):
         labelst.destroy()
-        label = ttk.Label(self, text="You should be able to see 'Hello world!' in the output window."
+        label = ttk.Label(self, text="You should be able to see 'Hello world' in the output window."
                                  "\n\nIf you can, great! You just created your first program in Python!"
                                  "\n\nIf you can't try to click 'back' and see if you missed any steps. Click on 'Finish' to complete this tutorial", justify='left', wraplength=290, anchor='center', font=fontstyle)
         label.place(relx=0, rely=0)
 
     def gonext(self):
+        codetoread = sandbox.textarea.get(1.0, END)
+        outputtoread = sandbox.outputarea.get(1.0, END)
         if self.pgno==3:
            self.destroy()
         if self.pgno == 2:
-            self.pagethree()
-            self.pgno = 3
-            return 'break'
+            if ('print(\"hello world\")' in codetoread.lower()) and ('hello world' in outputtoread.lower()):
+                self.pagethree()
+                self.pgno = 3
+                return 'break'
+            else:
+                print('Complete the task first!')
+                return 'break'
         if self.pgno == 1:
-            self.pagetwo()
-            self.pgno = 2
-            return 'break'
+            if ('print(<message>)' in codetoread):
+                self.pagetwo()
+                self.pgno = 2
+                return 'break'
+            else:
+                print('Complete the task first!')
         else:
             self.pageone()
             self.pgno = 1
             return 'break'
+
 
 
 
