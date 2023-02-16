@@ -31,7 +31,7 @@ def createGUI(parentframe):
     print(list)
     for j in range(columns):
         list[j].grid(row=j, column=0, sticky='news')
-        list[j].config(width=25)
+        list[j].config(width=27)
 
     frame_buttons.update_idletasks()
     frame_canvas.config(width=185 + vsb.winfo_width(),

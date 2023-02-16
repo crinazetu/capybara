@@ -21,7 +21,7 @@ else:
 
 # Set up root, the main window
 root = ThemedTk(theme='adapta')
-root.geometry('1000x740+0+0')
+root.geometry('1000x760+0+0')
 root.title('CaPybara')
 
 global font_size
@@ -40,7 +40,7 @@ filemenu.place(x=0, y=0, relwidth=1, height=40)
 # Universal frame, this will hold in every page
 global uniFrame
 uniFrame = ttk.Frame(root)
-uniFrame.place(x=0, y=40, width=1000, height=680)
+uniFrame.place(x=0, y=40, width=1000, height=720)
 
 # iexit exits the application
 def iexit(event=None):
@@ -51,7 +51,7 @@ def iexit(event=None):
         pass
 
 def course():
-    nw = NewWindow.NewWindow('title','label',root)
+    nw = NewWindow.NewWindow('title',root)
     nw.tutorial()
 
 # sets buttons up within the top menu with their corresponding functions.
@@ -77,37 +77,9 @@ tuticon = PhotoImage(file=r"Sprites\tutorial.png")
 tut = ttk.Button(filemenu, image=tuticon, command=course)
 tut.place(x=(55*6), y=0)
 
-check.set('light')
-
-# PAGE 1
-# The first page you see when you open the application
-def startPage(uniFrame):
-    page = ttk.Frame(uniFrame)
-    page.place(x=0, y=0, relwidth=1, relheight=1)
-    ttk.Button(page, text='Start', command=changepage).place(relx=0.5, rely=0.5)
-
-# PAGE 2
 # Page containing sandbox
 def sandboxPage(uniFrame):
     sandbox.placeEverything(uniFrame, font_size)
-
-# changepage makes it possible to change the contents of the universal frame
-def changepage():
-    global pagenum, root
-   # for widget in root.winfo_children():
-    # makes sure the manu is present regardless of what page you're on
-        #if root.winfo_children().__contains__(myMenu):
-         #   continue
-       # else:
-         #   widget.destroy()
-    if pagenum == 1:
-        sandboxPage(root)
-        pagenum = 2
-    else:
-        startPage(root)
-        pagenum = 1
-
-pagenum = 2
 
 
 #root.config(menu=myMenu)
@@ -123,4 +95,6 @@ img = PhotoImage(file='Sprites/capybaraiconsm.png')
 root.wm_iconphoto(True, img)
 
 sandboxPage(uniFrame)
+w = NewWindow.NewWindow('title',root)
+ww = w.welcomePage()
 root.mainloop()

@@ -1,18 +1,30 @@
 from tkinter import *
+
+import PIL
+from PIL import ImageTk, Image
+
 import TutorialOne
 import TutorialTwo
 from tkinter import ttk
 
 class NewWindow(Toplevel):
 
-    def __init__(self, titled, label, master=None):
+    def __init__(self, titled, master=None):
         super().__init__(master=master)
         self.title(titled)
-        self.geometry("300x500")
-        label = ttk.Label(self, text=label)
+
+    def welcomePage(self):
+        self.geometry("500x500")
+        label = ttk.Label(self, text="Welcome to CaPybara!")
         label.pack()
+        capybara = ImageTk.PhotoImage(Image.open("Sprites\cpysmall.png"))
+        img = Label(self, image=capybara)
+        img.image = capybara
+        img.place(x=250, y=250, anchor='center')
+
 
     def tutorial(self):
+        self.geometry("300x500")
         global unipage
         unipage = ttk.Frame(self)
         unipage.place(x=0, y=0, relwidth=1, relheight=1)
