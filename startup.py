@@ -54,6 +54,9 @@ def course():
     nw = NewWindow.NewWindow('title',root)
     nw.tutorial()
 
+def about():
+    NewWindow.NewWindow('title', root).aboutPage()
+
 # sets buttons up within the top menu with their corresponding functions.
 nficon = PhotoImage(file= r"Sprites\new_file.png")
 nf = ttk.Button(filemenu, image=nficon, command=new)
@@ -76,6 +79,9 @@ rn.place(x=(55*5), y=0)
 tuticon = PhotoImage(file=r"Sprites\tutorial.png")
 tut = ttk.Button(filemenu, image=tuticon, command=course)
 tut.place(x=(55*6), y=0)
+infoicon = PhotoImage(file=r"Sprites\info.png")
+info = ttk.Button(filemenu, image=infoicon, command=about)
+info.place(x=(1000-55), y=0)
 
 # Page containing sandbox
 def sandboxPage(uniFrame):

@@ -22,6 +22,16 @@ class NewWindow(Toplevel):
         img.image = capybara
         img.place(x=250, y=250, anchor='center')
 
+    def aboutPage(self):
+        self.geometry("300x300")
+        capybara = ImageTk.PhotoImage(Image.open("Sprites\cpysmall.png").resize((233, 150)))
+        img = Label(self, image=capybara)
+        img.image = capybara
+        img.place(x=150, y=100, anchor='center')
+        desc = Label(self, text="CaPybara ver 1.0\nDeveloped by Crina Zetu (2022-2023)", justify=LEFT)
+        desc.place(x=0, y=200)
+
+
 
     def tutorial(self):
         self.geometry("300x500")
