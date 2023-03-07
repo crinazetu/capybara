@@ -5,6 +5,7 @@ from PIL import ImageTk, Image
 
 import TutorialOne
 import TutorialTwo
+import TutorialThree
 from tkinter import ttk
 
 class NewWindow(Toplevel):
@@ -17,14 +18,14 @@ class NewWindow(Toplevel):
         self.geometry("500x500")
         label = ttk.Label(self, text="Welcome to CaPybara!")
         label.pack()
-        capybara = ImageTk.PhotoImage(Image.open("Sprites\cpysmall.png"))
+        capybara = ImageTk.PhotoImage(Image.open(r"C:\Users\crina\PycharmProjects\CaPybara\Sprites\cpysmall.png"))
         img = Label(self, image=capybara)
         img.image = capybara
         img.place(x=250, y=250, anchor='center')
 
     def aboutPage(self):
         self.geometry("300x300")
-        capybara = ImageTk.PhotoImage(Image.open("Sprites\cpysmall.png").resize((233, 150)))
+        capybara = ImageTk.PhotoImage(Image.open(r"C:\Users\crina\PycharmProjects\CaPybara\Sprites\cpysmall.png").resize((233, 150)))
         img = Label(self, image=capybara)
         img.image = capybara
         img.place(x=150, y=100, anchor='center')
@@ -45,6 +46,9 @@ class NewWindow(Toplevel):
         global tutorialtwobtn
         tutorialtwobtn = ttk.Button(unipage, text='Looking into variables', command=self.tuttwo, width=42)
         tutorialtwobtn.grid(row=1, column=0)
+        global tutorialthreebtn
+        tutorialthreebtn = ttk.Button(unipage, text='Introducing loops', command=self.tutthree, width=42)
+        tutorialthreebtn.grid(row=2, column=0)
 
 
     def tutone(self):
@@ -52,6 +56,10 @@ class NewWindow(Toplevel):
 
     def tuttwo(self):
         TutorialTwo.TutorialTwo(master=unipage).place(relx=0, rely=0, relheight=1, relwidth=1)
+
+    def tutthree(self):
+        TutorialThree.TutorialThree(master=unipage).place(relx=0, rely=0, relheight=1, relwidth=1)
+
 
 
 

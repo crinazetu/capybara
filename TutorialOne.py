@@ -49,7 +49,7 @@ class TutorialOne(Frame):
         if self.pgno==3:
            self.destroy()
         if self.pgno == 2:
-            if ('print(\"hello world\")' in codetoread.lower()) and ('hello world' in outputtoread.lower()):
+            if (('print(\"hello world\")' in codetoread.lower()) or ('print(\'hello world\')' in codetoread.lower())) and ('hello world' in outputtoread.lower()):
                 self.pagethree()
                 self.pgno = 3
                 return 'break'
