@@ -78,7 +78,7 @@ class TutorialThree(Frame):
         if self.pgno == 5:
             self.destroy()
         if self.pgno == 4:
-            if "for x in range (5):\n\tprint(\"Hello World!\")" in codetoread and "Hello world!" in outputtoread:
+            if "for x in range (5):\n\tprint(\"Hello World!\")" in codetoread and "hello world!" in outputtoread.lower():
                 self.pagefive()
                 self.pgno = 5
                 return 'break'
@@ -106,7 +106,7 @@ class TutorialThree(Frame):
             else:
                 print('Complete the task first!')
         else:
-            if "Hello world!" in outputtoread:
+            if "hello world!" in outputtoread.lower():
                 self.pageone()
                 self.pgno = 1
                 return 'break'

@@ -56,14 +56,13 @@ class TutorialTwo(Frame):
     def pagefour(self):
         labelst.destroy()
         label = ttk.Label(self,
-                          text="Congrats! Now you know how to use variables! You may close this tutorial now.",
-                          justify='left', wraplength=290, anchor='center',
+                          text="Congrats! Now you know how to use variables! You may close this tutorial now.\n\n\n\n\n",
+                          justify='left', wraplength=295, anchor='center',
                           font=fontstyle)
         label.place(relx=0, rely=0)
 
     def checkforresult(self):
-        global codetoread
-        global outputtoread
+
         codetoread = sandbox.textarea.get(1.0, END)
         outputtoread = sandbox.outputarea.get(1.0, END)
         codewords = codetoread.splitlines()
@@ -76,29 +75,41 @@ class TutorialTwo(Frame):
 
 
     def gonext(self):
+        codetoread = sandbox.textarea.get(1.0, END)
+        outputtoread = sandbox.outputarea.get(1.0, END)
         if self.pgno == 4:
             self.destroy()
         if self.pgno == 3:
-            if self.checkforresult() and ('hello world' in outputtoread.lower()):
+            if self.checkforresult():
+                self.pagefour()
                 self.pgno = 4
+                return 'break'
             else:
                 print('Complete the task first!')
         if self.pgno == 2:
-            #self.destroy()
-            print(self.checkforresult())
-            if (self.checkforresult()):
-                self.pgno = 4
+            if "print(message)" not in codetoread:
+                print("Complete task first!")
             else:
-                self.pgno = 3
-            return 'break'
+                if (self.checkforresult()):
+                    self.pagefour()
+                    self.pgno = 4
+                    return 'break'
+                else:
+                    self.pagethree()
+                    self.pgno = 3
+                    return 'break'
         if self.pgno == 1:
-            if ('<var> = <newValue>' in codetoread):
+            if ('message = \'hello world!\'' in codetoread.lower() or 'message = \"hello world!\"' in codetoread.lower()):
                 self.pagetwo()
                 self.pgno = 2
                 return 'break'
             else:
                 print('Complete the task first!')
         else:
-            self.pageone()
-            self.pgno = 1
-            return 'break'
+            if ('<var> = <newValue>' in codetoread):
+                self.pageone()
+                self.pgno = 1
+                return 'break'
+            else:
+                print('Complete the task first!')
+
