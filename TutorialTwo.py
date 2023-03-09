@@ -13,6 +13,7 @@ class TutorialTwo(Frame):
         fontstyle = ('calibri', 12)
 
         self.config(borderwidth='1', relief='solid')
+        global nextbtn
         nextbtn = ttk.Button(self, text='next', command=self.gonext)
         nextbtn.place(relx=0.5, rely=0.9, anchor='center')
 
@@ -73,6 +74,11 @@ class TutorialTwo(Frame):
         else:
             return False
 
+    def clearContent(self):
+        for widget in self.winfo_children():
+            if widget != nextbtn:
+                widget.destroy()
+
 
     def gonext(self):
         codetoread = sandbox.textarea.get(1.0, END)
@@ -81,6 +87,7 @@ class TutorialTwo(Frame):
             self.destroy()
         if self.pgno == 3:
             if self.checkforresult():
+                self.clearContent()
                 self.pagefour()
                 self.pgno = 4
                 return 'break'
@@ -90,16 +97,19 @@ class TutorialTwo(Frame):
             if "print(message)" not in codetoread:
                 print("Complete task first!")
             else:
-                if (self.checkforresult()):
+                if self.checkforresult():
+                    self.clearContent()
                     self.pagefour()
                     self.pgno = 4
                     return 'break'
                 else:
+                    self.clearContent()
                     self.pagethree()
                     self.pgno = 3
                     return 'break'
         if self.pgno == 1:
             if ('message = \'hello world!\'' in codetoread.lower() or 'message = \"hello world!\"' in codetoread.lower()):
+                self.clearContent()
                 self.pagetwo()
                 self.pgno = 2
                 return 'break'

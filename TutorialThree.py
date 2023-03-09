@@ -12,6 +12,7 @@ class TutorialThree(Frame):
         fontstyle = ('calibri', 12)
 
         self.config(borderwidth='1', relief='solid')
+        global nextbtn
         nextbtn = ttk.Button(self, text='next', command=self.gonext)
         nextbtn.place(relx=0.5, rely=0.9, anchor='center')
 
@@ -71,6 +72,11 @@ class TutorialThree(Frame):
                           font=fontstyle)
         label.place(relx=0, rely=0)
 
+    def clearContent(self):
+        for widget in self.winfo_children():
+            if widget != nextbtn:
+                widget.destroy()
+
     def gonext(self):
         codetoread = sandbox.textarea.get(1.0, END)
         outputtoread = sandbox.outputarea.get(1.0, END)
@@ -79,6 +85,7 @@ class TutorialThree(Frame):
             self.destroy()
         if self.pgno == 4:
             if "for x in range (5):\n\tprint(\"Hello World!\")" in codetoread and "hello world!" in outputtoread.lower():
+                self.clearContent()
                 self.pagefive()
                 self.pgno = 5
                 return 'break'
@@ -86,6 +93,7 @@ class TutorialThree(Frame):
                 print('Complete the task first!')
         if self.pgno == 3:
             if "for x in range (5):\n\tprint(\"Hello World!\")" in codetoread:
+                self.clearContent()
                 self.pagefour()
                 self.pgno = 4
                 return 'break'
@@ -93,6 +101,7 @@ class TutorialThree(Frame):
                 print('Complete the task first!')
         if self.pgno == 2:
             if "for x in range (5):\n\t(insert code)" in codetoread:
+                self.clearContent()
                 self.pagethree()
                 self.pgno = 3
                 return 'break'
@@ -100,6 +109,7 @@ class TutorialThree(Frame):
                 print('Complete the task first!')
         if self.pgno == 1:
             if "for x in range (insert):\n\t(insert code)" in codetoread:
+                self.clearContent()
                 self.pagetwo()
                 self.pgno = 2
                 return 'break'
@@ -107,6 +117,8 @@ class TutorialThree(Frame):
                 print('Complete the task first!')
         else:
             if "hello world!" in outputtoread.lower():
+                self.clearContent()
+                sandbox.outputarea.delete(1.0, END)
                 self.pageone()
                 self.pgno = 1
                 return 'break'
