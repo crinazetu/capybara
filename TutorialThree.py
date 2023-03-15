@@ -34,7 +34,7 @@ class TutorialThree(Frame):
                                "running the same commands multiple times using loops. Let’s start by inserting a 'for "
                                "loop' from your command window at the left of your window.", justify='left',
                           wraplength=290, anchor='center',
-                          font=fontstyle)
+                          font=fontstyle, background='#f0f0ed')
         label.place(relx=0, rely=0)
 
     def pagetwo(self):
@@ -43,7 +43,7 @@ class TutorialThree(Frame):
                           text="\'in range\' here refers to how many times you want something to happen. If we want "
                                "the code inside of the loop to run 5 times, replace the x with 5", justify='left',
                           wraplength=290, anchor='center',
-                          font=fontstyle)
+                          font=fontstyle, background='#f0f0ed')
         label.place(relx=0, rely=0)
 
     def pagethree(self):
@@ -53,7 +53,7 @@ class TutorialThree(Frame):
                                "it is inside of the loop, so that it replaces 'command'. There should be no code "
                                "outside of the loop",
                           justify='left', wraplength=290, anchor='center',
-                          font=fontstyle)
+                          font=fontstyle, background='#f0f0ed')
         label.place(relx=0, rely=0)
 
     def pagefour(self):
@@ -61,7 +61,7 @@ class TutorialThree(Frame):
         label = ttk.Label(self,
                           text="Everything looks good. Let's give the code a run!",
                           justify='left', wraplength=290, anchor='center',
-                          font=fontstyle)
+                          font=fontstyle, background='#f0f0ed')
         label.place(relx=0, rely=0)
 
     def pagefive(self):
@@ -69,7 +69,7 @@ class TutorialThree(Frame):
         label = ttk.Label(self,
                           text="Congratulations! Now you know how to use loops in Python!",
                           justify='left', wraplength=290, anchor='center',
-                          font=fontstyle)
+                          font=fontstyle, background='#f0f0ed')
         label.place(relx=0, rely=0)
 
     def clearContent(self):

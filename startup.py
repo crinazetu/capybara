@@ -100,6 +100,7 @@ root.bind('<Control-m>',font_dec)
 img = PhotoImage(file=r'C:\Users\crina\PycharmProjects\CaPybara\Sprites\capybaraiconsm.png')
 root.wm_iconphoto(True, img)
 
+
 sandboxPage(uniFrame)
 w = NewWindow.NewWindow('title',root)
 ww = w.welcomePage()

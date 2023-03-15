@@ -23,7 +23,7 @@ class TutorialTwo(Frame):
                                        "the variable is the box and its value is the thing that is inside of it. "
                                        "\n\nLet's start by storing this \"Hello world\" message into a variable."
                                        "\n\nOn the left hand side of the screen, click on \"set variable to...\".",
-                            justify='left', wraplength=290, anchor='center', font=fontstyle)
+                            justify='left', wraplength=290, anchor='center', font=fontstyle, background='#f0f0ed')
         labelst.place(relx=0, rely=0)
 
         self.pgno = 0
@@ -32,7 +32,7 @@ class TutorialTwo(Frame):
     def pageone(self):
         labelst.destroy()
         label = ttk.Label(self, text="Nice, now change 'var' into \"message\" and \"val\" into \"Hello world!\"",
-                          justify='left', wraplength=290, anchor='center', font=fontstyle)
+                          justify='left', wraplength=290, anchor='center', font=fontstyle, background='#f0f0ed')
         label.place(relx=0, rely=0)
 
     def pagetwo(self):
@@ -41,7 +41,7 @@ class TutorialTwo(Frame):
                           text="You're almost there. Now change the \"hello world\" inside of the \"print\" line to "
                                "be just \"message\".\n\nYou don't need the quotation marks this time, as Python will "
                                "know what you are referring to.", justify='left', wraplength=290, anchor='center',
-                          font=fontstyle)
+                          font=fontstyle, background='#f0f0ed')
         label.place(relx=0, rely=0)
 
     def pagethree(self):
@@ -51,7 +51,7 @@ class TutorialTwo(Frame):
                                "an interpreted language, so any variable must be declared and assigned before "
                                "everything else. Move your new variable to the top, and try again", justify='left',
                           wraplength=290, anchor='center',
-                          font=fontstyle)
+                          font=fontstyle, background='#f0f0ed')
         label.place(relx=0, rely=0)
 
     def pagefour(self):
@@ -59,7 +59,7 @@ class TutorialTwo(Frame):
         label = ttk.Label(self,
                           text="Congrats! Now you know how to use variables! You may close this tutorial now.\n\n\n\n\n",
                           justify='left', wraplength=295, anchor='center',
-                          font=fontstyle)
+                          font=fontstyle, background='#f0f0ed')
         label.place(relx=0, rely=0)
 
     def checkforresult(self):

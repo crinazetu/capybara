@@ -13,6 +13,7 @@ class NewWindow(Toplevel):
     def __init__(self, titled, master=None):
         super().__init__(master=master)
         self.title(titled)
+        self.wm_attributes('-transparentcolor', 'green')
 
     def welcomePage(self):
         self.geometry("500x500")
