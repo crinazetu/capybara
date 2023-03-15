@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import ttk
 import sandbox
+import NewWindow
 
 
 class TutorialThree(Frame):
@@ -77,6 +78,11 @@ class TutorialThree(Frame):
             if widget != nextbtn:
                 widget.destroy()
 
+    def warning(self):
+        top = Toplevel(self)
+        top.geometry("200x100")
+        Label(top, text="Complete the task first!").place(relx=0.1, rely=0.1)
+
     def gonext(self):
         codetoread = sandbox.textarea.get(1.0, END)
         outputtoread = sandbox.outputarea.get(1.0, END)
@@ -90,7 +96,7 @@ class TutorialThree(Frame):
                 self.pgno = 5
                 return 'break'
             else:
-                print('Complete the task first!')
+                self.warning()
         if self.pgno == 3:
             if "for x in range (5):\n\tprint(\"Hello World!\")" in codetoread:
                 self.clearContent()
@@ -98,7 +104,7 @@ class TutorialThree(Frame):
                 self.pgno = 4
                 return 'break'
             else:
-                print('Complete the task first!')
+                self.warning()
         if self.pgno == 2:
             if "for x in range (5):\n\t(insert code)" in codetoread:
                 self.clearContent()
@@ -106,7 +112,7 @@ class TutorialThree(Frame):
                 self.pgno = 3
                 return 'break'
             else:
-                print('Complete the task first!')
+                self.warning()
         if self.pgno == 1:
             if "for x in range (insert):\n\t(insert code)" in codetoread:
                 self.clearContent()
@@ -114,7 +120,7 @@ class TutorialThree(Frame):
                 self.pgno = 2
                 return 'break'
             else:
-                print('Complete the task first!')
+                self.warning()
         else:
             if "hello world!" in outputtoread.lower():
                 self.clearContent()
@@ -123,4 +129,4 @@ class TutorialThree(Frame):
                 self.pgno = 1
                 return 'break'
             else:
-                print('Complete the task first!')
+                self.warning()

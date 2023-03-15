@@ -42,14 +42,6 @@ global uniFrame
 uniFrame = ttk.Frame(root)
 uniFrame.place(x=0, y=40, width=1000, height=720)
 
-# iexit exits the application
-def iexit(event=None):
-    result = messagebox.askyesno('Confirm', 'Do you want to exit?')
-    if result:
-        root.destroy()
-    else:
-        pass
-
 def course():
     nw = NewWindow.NewWindow('title',root)
     nw.tutorial()

@@ -79,6 +79,10 @@ class TutorialTwo(Frame):
             if widget != nextbtn:
                 widget.destroy()
 
+    def warning(self):
+        top = Toplevel(self)
+        top.geometry("200x100")
+        Label(top, text="Complete the task first!").place(relx=0.1, rely=0.1)
 
     def gonext(self):
         codetoread = sandbox.textarea.get(1.0, END)
@@ -92,10 +96,10 @@ class TutorialTwo(Frame):
                 self.pgno = 4
                 return 'break'
             else:
-                print('Complete the task first!')
+                self.warning()
         if self.pgno == 2:
             if "print(message)" not in codetoread:
-                print("Complete task first!")
+                self.warning()
             else:
                 if self.checkforresult():
                     self.clearContent()
@@ -114,12 +118,12 @@ class TutorialTwo(Frame):
                 self.pgno = 2
                 return 'break'
             else:
-                print('Complete the task first!')
+                self.warning()
         else:
             if ('<var> = <newValue>' in codetoread):
                 self.pageone()
                 self.pgno = 1
                 return 'break'
             else:
-                print('Complete the task first!')
+                self.warning()
 
