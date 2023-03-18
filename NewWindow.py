@@ -1,4 +1,5 @@
 import tkinter.messagebox
+import webbrowser
 from tkinter import *
 
 import PIL
@@ -15,24 +16,30 @@ class NewWindow(Toplevel):
         super().__init__(master=master)
         self.title(titled)
 
-    def welcomePage(self):
-        self.geometry("500x500")
-        label = ttk.Label(self, text="Welcome to CaPybara!")
-        label.pack()
-        capybara = ImageTk.PhotoImage(Image.open(r"C:\Users\crina\PycharmProjects\CaPybara\Sprites\cpysmall.png"))
-        img = Label(self, image=capybara)
-        img.image = capybara
-        img.place(x=250, y=250, anchor='center')
+    # def welcomePage(self):
+    #     self.geometry("500x500")
+    #     label = ttk.Label(self, text="Welcome to CaPybara!")
+    #     label.pack()
+    #     capybara = ImageTk.PhotoImage(Image.open(r"C:\Users\crina\PycharmProjects\CaPybara\Sprites\cpysmall.png"))
+    #     img = Label(self, image=capybara)
+    #     img.image = capybara
+    #     img.place(x=250, y=250, anchor='center')
 
+    def callback(self, url):
+        webbrowser.open_new_tab(url)
 
     def aboutPage(self):
-        self.geometry("300x300")
+        self.geometry("300x260")
         capybara = ImageTk.PhotoImage(Image.open(r"C:\Users\crina\PycharmProjects\CaPybara\Sprites\cpysmall.png").resize((233, 150)))
         img = Label(self, image=capybara)
         img.image = capybara
         img.place(x=150, y=100, anchor='center')
         desc = Label(self, text="CaPybara ver 1.0\nDeveloped by Crina Zetu (2022-2023)", justify=LEFT)
-        desc.place(x=0, y=200)
+        desc.place(x=10, y=200)
+        link = Label(self, text="Github page", fg="blue", cursor="hand2")
+        link.place(x=10, y=233)
+        link.bind("<Button-1>", lambda e:
+        self.callback("https://github.com/crinazetu/capybara"))
 
 
 
@@ -46,13 +53,13 @@ class NewWindow(Toplevel):
         unipage.place(x=0, y=0, relwidth=1, relheight=1)
 
         global tutorialonebtn
-        tutorialonebtn = ttk.Button(unipage, text='Getting started', command=self.tutone, width=42)
+        tutorialonebtn = ttk.Button(unipage, text='Getting started', command=self.tutone, width=46)
         tutorialonebtn.grid(row=0, column=0)
         global tutorialtwobtn
-        tutorialtwobtn = ttk.Button(unipage, text='Looking into variables', command=self.tuttwo, width=42)
+        tutorialtwobtn = ttk.Button(unipage, text='Looking into variables', command=self.tuttwo, width=46)
         tutorialtwobtn.grid(row=1, column=0)
         global tutorialthreebtn
-        tutorialthreebtn = ttk.Button(unipage, text='Introducing loops', command=self.tutthree, width=42)
+        tutorialthreebtn = ttk.Button(unipage, text='Introducing loops', command=self.tutthree, width=46)
         tutorialthreebtn.grid(row=2, column=0)
 
 

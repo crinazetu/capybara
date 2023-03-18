@@ -94,6 +94,6 @@ root.wm_iconphoto(True, img)
 
 
 sandboxPage(uniFrame)
-w = NewWindow.NewWindow('title',root)
-ww = w.welcomePage()
+#w = NewWindow.NewWindow('title',root)
+#ww = w.welcomePage()
 root.mainloop()

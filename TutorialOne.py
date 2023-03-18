@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import ttk
 import sandbox
+import WarningWindow
 
 class TutorialOne(Frame):
     def __init__(self, master=None):
@@ -11,7 +12,7 @@ class TutorialOne(Frame):
 
         self.config(borderwidth='1', relief='solid')
         nextbtn = ttk.Button(self, text='next', command=self.gonext)
-        nextbtn.place(relx=0.2, rely=0.9)
+        nextbtn.place(relx=0.5, rely=0.9, anchor='center')
 
         global labelst
         labelst = ttk.Label(self, text='Hello and Welcome to CaPybara!\n\nIf you can read this, then it means you are ready '
@@ -43,10 +44,6 @@ class TutorialOne(Frame):
                                  "\n\nIf you can't try to click 'back' and see if you missed any steps. Click on 'Finish' to complete this tutorial", justify='left', wraplength=290, anchor='center', font=fontstyle, background='#f0f0ed')
         label.place(relx=0, rely=0)
 
-    def warning(self):
-        top = Toplevel(self)
-        top.geometry("200x100")
-        Label(top, text="Complete the task first!").place(relx=0.1, rely=0.1)
 
     def gonext(self):
         codetoread = sandbox.textarea.get(1.0, END)
@@ -59,7 +56,7 @@ class TutorialOne(Frame):
                 self.pgno = 3
                 return 'break'
             else:
-                self.warning()
+                WarningWindow.WarningWindow("",self)
                 return 'break'
         if self.pgno == 1:
             if ('print(<message>)' in codetoread):
@@ -67,7 +64,7 @@ class TutorialOne(Frame):
                 self.pgno = 2
                 return 'break'
             else:
-                self.warning()
+                WarningWindow.WarningWindow("",self)
         else:
             self.pageone()
             self.pgno = 1

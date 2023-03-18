@@ -28,7 +28,6 @@ def createGUI(parentframe):
 
     list = createCodeList.createList(frame_buttons)
     columns = len(list)
-    print(list)
     for j in range(columns):
         list[j].grid(row=j, column=0, sticky='news')
         list[j].config(width=27)

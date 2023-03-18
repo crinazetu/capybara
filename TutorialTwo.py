@@ -3,6 +3,7 @@ import os
 from tkinter import *
 from tkinter import ttk
 import sandbox
+import WarningWindow
 
 
 class TutorialTwo(Frame):
@@ -79,10 +80,6 @@ class TutorialTwo(Frame):
             if widget != nextbtn:
                 widget.destroy()
 
-    def warning(self):
-        top = Toplevel(self)
-        top.geometry("200x100")
-        Label(top, text="Complete the task first!").place(relx=0.1, rely=0.1)
 
     def gonext(self):
         codetoread = sandbox.textarea.get(1.0, END)
@@ -96,10 +93,10 @@ class TutorialTwo(Frame):
                 self.pgno = 4
                 return 'break'
             else:
-                self.warning()
+                WarningWindow.WarningWindow("",self)
         if self.pgno == 2:
             if "print(message)" not in codetoread:
-                self.warning()
+                WarningWindow.WarningWindow("",self)
             else:
                 if self.checkforresult():
                     self.clearContent()
@@ -118,12 +115,12 @@ class TutorialTwo(Frame):
                 self.pgno = 2
                 return 'break'
             else:
-                self.warning()
+                WarningWindow.WarningWindow("",self)
         else:
             if ('<var> = <newValue>' in codetoread):
                 self.pageone()
                 self.pgno = 1
                 return 'break'
             else:
-                self.warning()
+                WarningWindow.WarningWindow("",self)
 
