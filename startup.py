@@ -43,11 +43,11 @@ uniFrame = ttk.Frame(root)
 uniFrame.place(x=0, y=40, width=1000, height=720)
 
 def course():
-    nw = NewWindow.NewWindow('title',root)
+    nw = NewWindow.NewWindow('Tutorial',root)
     nw.tutorial()
 
 def about():
-    NewWindow.NewWindow('title', root).aboutPage()
+    NewWindow.NewWindow('About CaPybara', root).aboutPage()
 
 # sets buttons up within the top menu with their corresponding functions.
 nficon = PhotoImage(file= r"C:\Users\crina\PycharmProjects\CaPybara\Sprites\new_file.png")

@@ -41,7 +41,7 @@ class TutorialOne(Frame):
         labelst.destroy()
         label = ttk.Label(self, text="You should be able to see 'Hello world' in the output window."
                                  "\n\nIf you can, great! You just created your first program in Python!"
-                                 "\n\nIf you can't try to click 'back' and see if you missed any steps. Click on 'Finish' to complete this tutorial", justify='left', wraplength=290, anchor='center', font=fontstyle, background='#f0f0ed')
+                                 , justify='left', wraplength=290, anchor='center', font=fontstyle, background='#f0f0ed')
         label.place(relx=0, rely=0)
 
 
