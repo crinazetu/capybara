@@ -4,6 +4,7 @@ from tkinter import *
 from tkinter import ttk
 import sandbox
 import WarningWindow
+import createCodeList
 
 
 class TutorialTwo(Frame):
@@ -23,16 +24,17 @@ class TutorialTwo(Frame):
                                        "\n\nThink of a variable as a little box where you put stuff in. the name if "
                                        "the variable is the box and its value is the thing that is inside of it. "
                                        "\n\nLet's start by storing this \"Hello world\" message into a variable."
-                                       "\n\nOn the left hand side of the screen, click on \"set variable to...\".",
+                                       "\n\nOn the left hand side of the screen, click on \"New Variable\".",
                             justify='left', wraplength=290, anchor='center', font=fontstyle, background='#f0f0ed')
         labelst.place(relx=0, rely=0)
 
         self.pgno = 0
+        sandbox.textarea.delete(1.0, END)
         sandbox.textarea.insert(END, 'print(\"Hello World!\")')
 
     def pageone(self):
         labelst.destroy()
-        label = ttk.Label(self, text="Nice, now change 'var' into \"message\" and \"val\" into \"Hello world!\"",
+        label = ttk.Label(self, text="Nice, now change \'insert_variable_name\' into \"message\" and \'insert_value\' into \"Hello world!\"",
                           justify='left', wraplength=290, anchor='center', font=fontstyle, background='#f0f0ed')
         label.place(relx=0, rely=0)
 
@@ -58,7 +60,7 @@ class TutorialTwo(Frame):
     def pagefour(self):
         labelst.destroy()
         label = ttk.Label(self,
-                          text="Congrats! Now you know how to use variables! You may close this tutorial now.\n\n\n\n\n",
+                          text="Congrats! Now you know how to use variables! You may close this tutorial now.",
                           justify='left', wraplength=295, anchor='center',
                           font=fontstyle, background='#f0f0ed')
         label.place(relx=0, rely=0)
@@ -117,7 +119,7 @@ class TutorialTwo(Frame):
             else:
                 WarningWindow.WarningWindow("",self)
         else:
-            if ('<var> = <newValue>' in codetoread):
+            if (createCodeList.variableIs.codetext in codetoread):
                 self.pageone()
                 self.pgno = 1
                 return 'break'

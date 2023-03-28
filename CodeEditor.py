@@ -9,7 +9,7 @@ from LineNumbers import *
 
 def setTextBox(parent, font_size, scrollbar):
 
-    textarea = tk.Text(parent, font=('courier', font_size, 'bold'), yscrollcommand=scrollbar.set)
+    textarea = tk.Text(parent, font=('courier', font_size, 'bold'), yscrollcommand=scrollbar.set, wrap=WORD)
     t = Tool()
     textarea.bind("<Return>", lambda event, textw=textarea: t.indentLines(textw))
     ip.Percolator(textarea).insertfilter(ic.ColorDelegator())

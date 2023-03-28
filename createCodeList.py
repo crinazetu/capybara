@@ -5,55 +5,54 @@ from tkinter import ttk
 import codeList
 from CollapsablePane import CollapsiblePane as cp
 
-variableIs = CodeButton('New Variable', '<var> = <value>')
-globalVarIs = CodeButton('New global variable', 'global <var>\n<var> = <value>')
-setVar = CodeButton('Set Variable to...', '<var> = <newValue>')
-incrementVar = CodeButton('Increment Value', '<var> += 1')
-decrementVar = CodeButton('Decrement Value', '<var> -= 1')
+variableIs = CodeButton('New Variable', 'insert_variable_name = insert-value')
+globalVarIs = CodeButton('New global variable', 'global insert_variable_name\ninsert_variable_name = insert-value')
+#setVar = CodeButton('Set Variable to...', '<var> = <newValue>')
+incrementVar = CodeButton('Increment Value', 'variable_name += 1')
+decrementVar = CodeButton('Decrement Value', 'variable_name -= 1')
 
 # lists
-newList = CodeButton('New List', '<list> = [<elem1>, <elem2>, <elem3>]')
-getElem = CodeButton('Find Element', '<list>[index]')
-findIndex = CodeButton('find index of element', '<list>.index(<element>)')
-addEndToList = CodeButton('Add element to end', '<list>.append(<element>)')
-addLocToList = CodeButton('Add element to location', '<list>.insert(<index>, <element>)')
-remfromList = CodeButton('Remove element', '<list>.remove(<element>)')
-lenList = CodeButton('get length of list', 'len(<list>)')
-reverseList = CodeButton('reverse order of list', '<list>.reverse()')
-sortList = CodeButton('sort list', '<list>.sort()')
+newList = CodeButton('New List', 'insert_list_name = [element_1, element_2, element_3]')
+getElem = CodeButton('Find Element', 'insert_list_name[index_number]')
+findIndex = CodeButton('Find index of element', 'insert_list_name.index(element_name)')
+addEndToList = CodeButton('Add element to end', 'insert_list_name.append(element_name)')
+addLocToList = CodeButton('Add element to location', 'insert_list_name.insert(insert_index_number, element_name)')
+remfromList = CodeButton('Remove element', 'insert_list_name.remove(element_name)')
+lenList = CodeButton('Get length of list', 'len(insert_list_name)')
+reverseList = CodeButton('Reverse order of list', 'insert_list_name.reverse()')
+sortList = CodeButton('Sort list', 'insert_list_name.sort()')
 
 # Conditionals
-ifElse = CodeButton('If statement', 'if <condition>:\n\t<command>')
-elifStatement = CodeButton('else if', 'elif <condition>:\n\t<command>')
-elseStatement = CodeButton('else...', 'else:\n\t<command>')
-# switchCase = CodeButton('switch case', '')
+ifElse = CodeButton('If statement', 'if (state_the_condition):\n\t#insert commands...')
+elifStatement = CodeButton('Else if', 'elif (state_the_condition):\n\t#insert commands...')
+elseStatement = CodeButton('Else...', 'else:\n\t#insert commands...')
 
 # Loops
-whileLoop = CodeButton('while...', 'while <condition>:\n\t<command>')
-forLoop = CodeButton("Do it (X) times", "for x in range (insert):\n\t(insert code)")
-forLoopList = CodeButton('for each element...', 'for x in <list>:\n\t<command>')
+whileLoop = CodeButton('While...', 'while (state_the_condition):\n\t#insert commands...')
+forLoop = CodeButton("For a number of times...", "for x in range (number_of_times):\n\t#insert commands...")
+forLoopList = CodeButton('For each element...', 'for x in insert_list_name:\n\t#insert commands...')
 
 # define function
-defFun = CodeButton('define function', 'def <function_name>(<args>):\n\t<command>')
+defFun = CodeButton('Define a function', 'def insert_function_name(state_the_parameters):\n\t#insert commands...')
 
 # operators
 # logical
-andOp = CodeButton('and', '<cond1> and <cond2>')
-orOp = CodeButton('or', '<cond1> or <cond2>')
-notOp = CodeButton('not', 'not(<cond>)')
+andOp = CodeButton('and', '(condition_1) and (condition_2)')
+orOp = CodeButton('or', '(condition_1) or (condition_2)')
+notOp = CodeButton('not', 'not(condition)')
 # comparison
-isGreater = CodeButton('greater than...', '<value1> > <value2>')
-isGreaterOrEq = CodeButton('greater or equal than...', '<value1> >= <value2>')
-isLess = CodeButton('less than...', '<value1> < <value2>')
-isLessorEq = CodeButton('less or equal than...', '<value1> <= <value2>')
-isEqual = CodeButton('equal to...', '<value1> == <value2>')
-isNotEqual = CodeButton('NOT equal to...', '<value1> != <value2>')
+isGreater = CodeButton('greater than...', 'insert_value_1 > insert_value_2')
+isGreaterOrEq = CodeButton('greater or equal than...', 'insert_value_1 >= insert_value_2')
+isLess = CodeButton('less than...', 'insert_value_1 < insert_value_2')
+isLessorEq = CodeButton('less or equal than...', 'insert_value_1 <= insert_value_2')
+isEqual = CodeButton('equal to...', 'insert_value_1 == insert_value_2')
+isNotEqual = CodeButton('NOT equal to...', 'insert_value_1 != insert_value_2')
 # membership
-isItIn = CodeButton('Is element in list', '<element> in <list>')
-isItNotIn = CodeButton('Is element NOT in list', '<element> not in <list>')
+isItIn = CodeButton('Is element in list', 'specify_element in specify_list_name')
+isItNotIn = CodeButton('Is element NOT in list', 'specify_element not in specify_list_name')
 
 # misc
-printmsg = CodeButton("Print a message", "print(<message>)")
+printmsg = CodeButton("Print a message", "print(\"Insert message here\")")
 
 
 def createList(frame):
@@ -74,10 +73,10 @@ def createList(frame):
     list.append(globalvarbtn)
     PopupsButtons.CreateToolTip(globalvarbtn, globalVarIs.codetext, "Creates a global variable.\nIt needs to be declared first, and then assigned a value")
 
-    setvarbtn = ttk.Button(frame, text=setVar.name,
-                       command=lambda: parseText(setVar.codetext, sandbox.textarea))
-    list.append((setvarbtn))
-    PopupsButtons.CreateToolTip(setvarbtn, setVar.codetext, "Assigns a new value to an existing variable")
+    #setvarbtn = ttk.Button(frame, text=setVar.name,
+                     #  command=lambda: parseText(setVar.codetext, sandbox.textarea))
+    #list.append((setvarbtn))
+    #PopupsButtons.CreateToolTip(setvarbtn, setVar.codetext, "Assigns a new value to an existing variable")
 
 
     incrembtn = ttk.Button(frame, text=incrementVar.name,

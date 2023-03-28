@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import ttk
 import sandbox
 import WarningWindow
+import createCodeList
 
 
 class TutorialThree(Frame):
@@ -25,6 +26,7 @@ class TutorialThree(Frame):
         labelst.place(relx=0, rely=0)
 
         self.pgno = 0
+        sandbox.textarea.delete(1.0, END)
         sandbox.textarea.insert(END, 'print(\"Hello World!\")\nprint(\"Hello World!\")\nprint(\"Hello '
                                      'World!\")\nprint(\"Hello World!\")\nprint(\"Hello World!\")\n')
 
@@ -33,7 +35,8 @@ class TutorialThree(Frame):
         label = ttk.Label(self,
                           text="The code runs just fine, but it's a bit clunky. Python has a more elegant way of "
                                "running the same commands multiple times using loops. Let’s start by inserting a 'for "
-                               "loop' from your command window at the left of your window.", justify='left',
+                               "loop' from your command window at the left of your window. To do so, find and click "
+                               "the button named \"For a number of times...\"", justify='left',
                           wraplength=290, anchor='center',
                           font=fontstyle, background='#f0f0ed')
         label.place(relx=0, rely=0)
@@ -42,7 +45,7 @@ class TutorialThree(Frame):
         labelst.destroy()
         label = ttk.Label(self,
                           text="\'in range\' here refers to how many times you want something to happen. If we want "
-                               "the code inside of the loop to run 5 times, replace the x with 5", justify='left',
+                               "the code inside of the loop to run 5 times, replace the \"number_of_times\" with 5", justify='left',
                           wraplength=290, anchor='center',
                           font=fontstyle, background='#f0f0ed')
         label.place(relx=0, rely=0)
@@ -50,8 +53,8 @@ class TutorialThree(Frame):
     def pagethree(self):
         labelst.destroy()
         label = ttk.Label(self,
-                          text="Delete all of the print lines so that there is only one left. Then, move this line so "
-                               "it is inside of the loop, so that it replaces 'command'. There should be no code "
+                          text="Delete all of the print lines so that there is only one left. Then, move this line "
+                               "inside of the loop, so that it replaces the placeholder. There should be no code "
                                "outside of the loop",
                           justify='left', wraplength=290, anchor='center',
                           font=fontstyle, background='#f0f0ed')
@@ -87,7 +90,7 @@ class TutorialThree(Frame):
         if self.pgno == 5:
             self.destroy()
         if self.pgno == 4:
-            if "for x in range (5):\n\tprint(\"Hello World!\")" in codetoread and "hello world!" in outputtoread.lower():
+            if "for x in range (5):\n\tprint(\"hello world!\")" in codetoread.lower() and "hello world!" in outputtoread.lower():
                 self.clearContent()
                 self.pagefive()
                 self.pgno = 5
@@ -95,7 +98,7 @@ class TutorialThree(Frame):
             else:
                 WarningWindow.WarningWindow("",self)
         if self.pgno == 3:
-            if "for x in range (5):\n\tprint(\"Hello World!\")" in codetoread:
+            if "for x in range (5):\n\tprint(\"hello world!\")" in codetoread.lower():
                 self.clearContent()
                 self.pagefour()
                 self.pgno = 4
@@ -103,7 +106,7 @@ class TutorialThree(Frame):
             else:
                 WarningWindow.WarningWindow("",self)
         if self.pgno == 2:
-            if "for x in range (5):\n\t(insert code)" in codetoread:
+            if "for x in range (5):" in codetoread:
                 self.clearContent()
                 self.pagethree()
                 self.pgno = 3
@@ -111,7 +114,7 @@ class TutorialThree(Frame):
             else:
                 WarningWindow.WarningWindow("",self)
         if self.pgno == 1:
-            if "for x in range (insert):\n\t(insert code)" in codetoread:
+            if createCodeList.forLoop.codetext in codetoread:
                 self.clearContent()
                 self.pagetwo()
                 self.pgno = 2

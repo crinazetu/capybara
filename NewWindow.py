@@ -16,21 +16,12 @@ class NewWindow(Toplevel):
         super().__init__(master=master)
         self.title(titled)
 
-    # def welcomePage(self):
-    #     self.geometry("500x500")
-    #     label = ttk.Label(self, text="Welcome to CaPybara!")
-    #     label.pack()
-    #     capybara = ImageTk.PhotoImage(Image.open(r"C:\Users\crina\PycharmProjects\CaPybara\Sprites\cpysmall.png"))
-    #     img = Label(self, image=capybara)
-    #     img.image = capybara
-    #     img.place(x=250, y=250, anchor='center')
-
     def callback(self, url):
         webbrowser.open_new_tab(url)
 
     def aboutPage(self):
         self.geometry("300x260")
-        capybara = ImageTk.PhotoImage(Image.open(r"C:\Users\crina\PycharmProjects\CaPybara\Sprites\cpysmall.png").resize((233, 150)))
+        capybara = ImageTk.PhotoImage(Image.open("Sprites/cpysmall.png").resize((233, 150)))
         img = Label(self, image=capybara)
         img.image = capybara
         img.place(x=150, y=100, anchor='center')
@@ -40,9 +31,6 @@ class NewWindow(Toplevel):
         link.place(x=10, y=233)
         link.bind("<Button-1>", lambda e:
         self.callback("https://github.com/crinazetu/capybara"))
-
-
-
 
 
 

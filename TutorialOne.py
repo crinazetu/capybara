@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import ttk
 import sandbox
 import WarningWindow
+import createCodeList
 
 class TutorialOne(Frame):
     def __init__(self, master=None):
@@ -11,6 +12,7 @@ class TutorialOne(Frame):
         fontstyle = ('calibri', 12)
 
         self.config(borderwidth='1', relief='solid')
+        global nextbtn
         nextbtn = ttk.Button(self, text='next', command=self.gonext)
         nextbtn.place(relx=0.5, rely=0.9, anchor='center')
 
@@ -44,6 +46,10 @@ class TutorialOne(Frame):
                                  , justify='left', wraplength=290, anchor='center', font=fontstyle, background='#f0f0ed')
         label.place(relx=0, rely=0)
 
+    def clearContent(self):
+        for widget in self.winfo_children():
+            if widget != nextbtn:
+                widget.destroy()
 
     def gonext(self):
         codetoread = sandbox.textarea.get(1.0, END)
@@ -52,6 +58,7 @@ class TutorialOne(Frame):
            self.destroy()
         if self.pgno == 2:
             if (('print(\"hello world\")' in codetoread.lower()) or ('print(\'hello world\')' in codetoread.lower())) and ('hello world' in outputtoread.lower()):
+                self.clearContent()
                 self.pagethree()
                 self.pgno = 3
                 return 'break'
@@ -59,7 +66,8 @@ class TutorialOne(Frame):
                 WarningWindow.WarningWindow("",self)
                 return 'break'
         if self.pgno == 1:
-            if ('print(<message>)' in codetoread):
+            if (createCodeList.printmsg.codetext in codetoread):
+                self.clearContent()
                 self.pagetwo()
                 self.pgno = 2
                 return 'break'

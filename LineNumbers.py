@@ -10,7 +10,7 @@ class LineNumbers(Text):
         self.text_widget.bind('<MouseWheel>', self.on_key_release)
 
         self.insert(1.0, '1')
-        self.configure(state='disabled', font=('courier', 15, 'bold'))
+        self.configure(state='disabled', font=('courier', 12, 'bold'))
 
     def on_key_release(self, event=None):
         p, q = self.text_widget.index("@0,0").split('.')
